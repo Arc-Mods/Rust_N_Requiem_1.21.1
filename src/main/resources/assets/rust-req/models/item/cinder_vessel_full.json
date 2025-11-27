@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "rust-req:item/cinder_vessel_full"
+  }
+}

@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "rust-req",
+	"version": "${version}",
+	"name": "Rust N' Requiem",
+	"description": "Mod adding rusty weapons and stuff",
+	"authors": [
+		"Katto"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/rust-req/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.katto.RustNRequiem"
+		],
+		"fabric-datagen": [
+			"com.katto.RustNRequiemDataGenerator"
+		]
+	},
+	"mixins": [
+		"rust-req.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

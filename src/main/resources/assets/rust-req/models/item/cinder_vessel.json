@@ -1,0 +1,9 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "rust-req:item/cinder_vessel_empty"
+  },
+  "overrides": [
+    { "predicate": { "has_item": 1 }, "model": "rust-req:item/cinder_vessel_full" }
+  ]
+}
