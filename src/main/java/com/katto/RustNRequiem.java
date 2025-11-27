@@ -5,8 +5,6 @@ import com.katto.index.RustReqItemGroup;
 import com.katto.index.RustReqItems;
 import com.katto.index.RustReqPackets;
 import com.katto.item.CinderVesselItem;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
@@ -33,6 +31,7 @@ public class RustNRequiem implements ModInitializer {
 					return (comp != null && !comp.stack().isEmpty()) ? 1f : 0f;
 				}
 		);
+
 
 		ServerLivingEntityEvents.AFTER_DEATH.register((victim, source) -> {
 			if (!(source.getAttacker() instanceof PlayerEntity player)) return;

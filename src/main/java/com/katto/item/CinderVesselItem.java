@@ -3,22 +3,16 @@ package com.katto.item;
 import com.katto.component.StoredItemComponent;
 import com.katto.index.RustReqComponents;
 import com.katto.index.RustReqItems;
-import com.katto.index.RustReqPackets;
 import net.acoyt.acornlib.api.item.KillEffectItem;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class CinderVesselItem extends Item implements KillEffectItem {
@@ -73,15 +67,6 @@ public class CinderVesselItem extends Item implements KillEffectItem {
 
         // Clear the stored item
         setStoredItem(stack, ItemStack.EMPTY);
-
-        // Prepare and send packet with victim's position
-        BlockPos deathPos = victim.getBlockPos();
-        PacketByteBuf buf = PacketByteBufs.create();
-        buf.writeInt(deathPos.getX());
-        buf.writeInt(deathPos.getY());
-        buf.writeInt(deathPos.getZ());
-
-        ServerPlayNetworking.send((ServerPlayerEntity) killer, RustReqPackets.CINDER_BEAM_ID, buf);
     }
 
 
